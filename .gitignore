@@ -1,0 +1,7 @@
+node_modules
+.env*
+express-db
+.vscode
+Dockerfile
+docker-compose.yml
+prisma
