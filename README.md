@@ -1,4 +1,12 @@
+## 开发基本流程
+
+1. 启动数据库服务
+2. 迁移数据
+3. 启动 express 应用
+
 ## docker 中创建数据库服务
+
+例如：
 
 ```bash
 mkdir express-db
@@ -86,14 +94,16 @@ npx prisma migrate deploy # （生产环境）数据库迁移
 npx prisma studio
 ```
 
-- 在 docker 启动数据库服务
-- 创建数据库
-- prisma 初始化
-  - npx prisma generate // 如果有 schema 文件
-  - npx prisma init // 如果没有，通过这个自动生成
-  - npx prisma migrate dev // 创建并应用数据库迁移，将数据模型的更改应用到数据库中
-  - npx prisma db push // 执行数据库同步，根据数据模型文件自动创建数据库表
-  - npx prisma studio // 一个可视化的数据库管理工具，用于浏览和编辑数据库中的数据。
-- 运行 express 服务
+## docker-compose 指令
 
-  "start:prod": "env-cmd -f .env.production npx prisma generate && node server.js && npx prisma migrate deploy"
+```bash
+docker-compose up -d # 后台运行
+docker-compose down # 停止并移除容器
+docker-compose build # 构建镜像
+docker-compose stop # 停止已经创建的容器
+docker-compose start # 启动已经创建的容器
+docker-compose restart # 重启容器
+docker-compose logs # 查看容器的日志输出
+docker-compose ps # 列出正在运行的容器
+docker-compose exec <service_name> sh # 在容器内执行命令
+```

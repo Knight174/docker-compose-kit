@@ -1,3 +1,4 @@
+require('dotenv');
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const { faker } = require('@faker-js/faker');
@@ -74,8 +75,6 @@ app.get('/seed', async (req, res) => {
     res.status(500).send('Error seeding database');
   }
 });
-
-console.log('NODE_ENV: => ', process.env.NODE_ENV);
 
 app.listen(process.env.PORT, async () => {
   console.log('Server is running on port ' + process.env.PORT);
