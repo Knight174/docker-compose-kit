@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  express-api:
+    container_name: express-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3002:3000
+    depends_on:
+      - pgsql
+    env_file:
+      - .env.production # 生产环境
+  pgsql:
+    image: postgres:14
+    restart: always
+    container_name: pgsql-db
+    environment:
+      - POSTGRES_DB=prod
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
+    name: express-db

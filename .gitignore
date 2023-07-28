@@ -1,11 +1,12 @@
+.vscode
 node_modules
+
 .env
 .env.test
 .env.staging
 .env.production
 .env.local
+
+bin
 express-db
-.vscode
-Dockerfile
-docker-compose.yml
 prisma
