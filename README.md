@@ -98,7 +98,9 @@ npx prisma studio
 
 ```bash
 docker-compose up -d # 后台运行
+docker-compose -f docker-compose.dev.yml up -d # 指定使用 docker-compose.dev.yml 启动容器
 docker-compose down # 停止并移除容器
+docker-compose -f docker-compose.dev.yml down # 指定停止并移除
 docker-compose build # 构建镜像
 docker-compose stop # 停止已经创建的容器
 docker-compose start # 启动已经创建的容器
@@ -106,4 +108,9 @@ docker-compose restart # 重启容器
 docker-compose logs # 查看容器的日志输出
 docker-compose ps # 列出正在运行的容器
 docker-compose exec <service_name> sh # 在容器内执行命令
+```
+
+```bash
+# 使用 docker-compose.yml 和 docker-compose.dev.yml 启动容器
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 ```

@@ -6,9 +6,10 @@
   "scripts": {
     "migrate:dev": "prisma migrate dev",
     "start:dev": "env-cmd -f .env nodemon server.js",
-    "start:test": "env-cmd -f .env.test nodemon server.js",
+    "start:migrate:dev": "env-cmd -f .env npm run migrate:dev && npm run start:dev",
     "start:prod": "env-cmd -f .env.production node server.js",
-    "start:migrate:prod": "env-cmd -f .env.production prisma migrate deploy && npm run start:prod"
+    "start:migrate:prod": "env-cmd -f .env.production prisma migrate deploy && npm run start:prod",
+    "prisma:studio": "prisma studio"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  express-api-dev:
+    container_name: express-api-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 4000:3000
+      - 6555:5555 # 暴露 prisma 可视化，方便调试
+    depends_on:
+      - pgsql
+    env_file:
+      - .env # 开发环境
+  pgsql:
+    image: postgres:14
+    restart: always
+    container_name: pgsql-db-dev
+    environment:
+      - POSTGRES_DB=dev
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 6432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
+    name: express-db
