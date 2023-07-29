@@ -14,11 +14,8 @@ RUN npm install
 # 复制应用程序代码到容器中
 COPY . .
 
-# 生成 Prisma
-RUN npm install -g prisma
-
 # 生成 Prisma 客户端
-RUN prisma generate
+RUN npx prisma generate
 
 # 暴露应用程序的端口
 EXPOSE 3000
