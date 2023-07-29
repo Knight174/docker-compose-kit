@@ -9,4 +9,3 @@ node_modules
 
 bin
 express-db
-prisma
