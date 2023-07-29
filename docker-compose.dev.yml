@@ -13,10 +13,10 @@ services:
       - pgsql
     env_file:
       - .env # 开发环境
-  pgsql:
+  postgres-db-dev:
     image: postgres:14
     restart: always
-    container_name: pgsql-db-dev
+    container_name: postgres-db-dev
     environment:
       - POSTGRES_DB=dev
       - POSTGRES_USER=user
