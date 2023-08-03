@@ -9,3 +9,5 @@ node_modules
 
 bin
 express-db
+
+.gpt-runner
